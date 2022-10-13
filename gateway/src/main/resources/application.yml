@@ -1,0 +1,20 @@
+eureka:
+    client:
+        service-url:
+            defaultZone: http://192.168.0.125:8761/eureka/
+server:
+    port: 8765
+spring:
+    application:
+        name: demo-gateway
+    cloud:
+        gateway:
+            routes:
+              - id: websoket-service
+                predicates:
+                - Path=/mq/**
+                uri: lb:ws://websocket-service
+              - id: websoket-service
+                predicates:
+                - Path=/mq/info/**
+                uri: lb://websocket-service

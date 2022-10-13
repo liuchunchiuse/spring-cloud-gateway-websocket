@@ -1,0 +1,13 @@
+eureka:
+    client:
+        service-url:
+            defaultZone: http://192.168.0.125:8761/eureka/
+    instance:
+        health-check-url-path: ''
+        hostname: localhost
+        prefer-ip-address: true
+server:
+    port: 9001
+spring:
+    application:
+        name: websocket-service
